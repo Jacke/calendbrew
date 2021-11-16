@@ -1,20 +1,27 @@
 #!/usr/bin/env node
+import { createRequire } from 'module';
+import trelloService  from './trello.mjs';
+import GCalendar from './gcal/gcalendar.mjs';
+
+const require = createRequire(import.meta.url);
+
 
 var blessed = require('blessed');
 var fs = require('fs');
 var art = require('ascii-art');
 var chalk = require('chalk');
 require('dotenv').config();
-console.log('Trello key', process.env.TRELLO_KEY);
+
 
 const { Command } = require('commander');
 var whoami = require('whoami');
 const logo = () => { (async() => {
   try{
-    Promise.all([art.font("Calend", 'doom'), art.font("Brew", 'doom')]).then((values)=>{
+    Promise.all([art.font("Calend", 'doom'), art.font("Brew", 'doom')]).then((values)=> {
       let calend = values[0].split('\n');
       let brew = values[1].split('\n');
       var res = [];
+      var line;
       for (line in calend) {
         res.push(chalk.red(calend[line]) + " " + chalk.hex('#964B00')(brew[line]));
       }
@@ -48,6 +55,7 @@ const feedBackLogic = () => {
 
 const selectTasks = () => {
 	console.log('Tasks from Trello, labels ..., ...., ..., state ....');
+        console.log('Options: Do now, do next, schedule, avoid');
 	console.log('Submit');
 }
 
@@ -186,3 +194,5 @@ console.log(p.toString());
         feedBackLogic();
   }
 }
+// console.log('trelloService launch: ', trelloService());
+console.log('gcal run', GCalendar());
