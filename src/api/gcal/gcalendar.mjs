@@ -8,11 +8,12 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = 'token.json';
+const CREDENTIALS_PATH = './.credentials.json';
 
 const GCalendar = () => {
   console.log('hello from gcalendar');
   // Load client secrets from a local file.
-  fs.readFile('./gcal/credentials.json', (err, content) => {
+  fs.readFile(CREDENTIALS_PATH, (err, content) => {
     if (err) return console.log('Error loading client secret file:', err);
     // Authorize a client with credentials, then call the Google Calendar API.
     authorize(JSON.parse(content), listEvents);

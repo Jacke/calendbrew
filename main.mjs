@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { createRequire } from 'module';
-import trelloService  from './trello.mjs';
-import GCalendar from './gcal/gcalendar.mjs';
+import trelloService  from './src/api/trello/trello.mjs';
+import GCalendar from './src/api/gcal/gcalendar.mjs';
 
 const require = createRequire(import.meta.url);
 
