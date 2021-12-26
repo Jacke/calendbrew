@@ -6,7 +6,7 @@
 	"label": "Learning",
 	"place": "60%",
 	"days": [1,3,5],
-	"routines": [{"test": 100, opts: {}}],
+	"routines": [{"test": 100, "options": {}}]
   }, { 
     "label": "Work",
     "place": "30%",
@@ -24,5 +24,5 @@
   "inprogress": "Doing",
   "routines": "Routines",
   "card_output_style": 1,
-  "timing_api_keys": [],
+  "timing_api_keys": []
 }
