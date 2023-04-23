@@ -1,19 +1,22 @@
 #!/usr/bin/env node
 import trelloService from "./src/api/trello/trello";
-import GCalendar from "./src/api/gcal/gcalendar";
-import configLoader from "./src/config/loader";
+import GCalendar from "./src/api/gcal/gcalendar.js";
+import configLoader from "./src/config/loader.js";
 
-var blessed = require("blessed");
-var fs = require("fs");
-var art = require("ascii-art");
+import blessed from "blessed";
+import fs from "fs";
+import art from "ascii-art";
+
 import chalk from "chalk";
 import { config } from 'dotenv';
-import { ls } from './src/utils/shell';
+import { ls } from './src/utils/shell.js';
 
 console.log(config());
 
-const { Command } = require("commander");
-var whoami = require("whoami");
+import { Command } from "commander";
+import whoami from "whoami";
+//const { Command } = require("commander");
+//var whoami = require("whoami");
 const logo = () => {
   (async () => {
     try {

@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "module": "nodenext",
-    "esModuleInterop": true
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "moduleResolution": "node"
   },
   "ava": {
     "extensions": {
@@ -14,5 +15,9 @@
     "nodeArguments": [
       "--loader=ts-node/esm"
     ]
+  },
+  "ts-node": {
+    // Tell ts-node CLI to install the --loader automatically, explained below
+    "esm": true
   }
 }
